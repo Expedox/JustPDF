@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; worker-src 'self' blob:; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' blob: data:">
+  <meta name="theme-color" content="#2f5d8a">
+  <meta name="description" content="PDFs und Fotos zusammenfügen, sortieren und durchsuchbar machen. Alles bleibt auf deinem Gerät.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <title>JustPDF</title>
+  <script type="module" crossorigin src="./assets/index-Ck-w1FoX.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Ccf0s7i0.css">
+</head>
+<body>
+  <header class="bar">
+    <h1>JustPDF</h1>
+    <p class="claim">PDFs und Fotos zusammenfügen und sortieren. Alles bleibt auf deinem Gerät.</p>
+  </header>
+
+  <main>
+    <label id="drop" class="drop" tabindex="0">
+      <input id="picker" type="file" accept="application/pdf,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp,.avif" multiple hidden>
+      <span class="drop-main">PDFs und Fotos hier ablegen</span>
+      <span class="drop-sub">oder tippen, um Dateien auszuwählen</span>
+    </label>
+
+    <p id="msg" class="msg" role="status" aria-live="polite" hidden></p>
+
+    <ul id="files" class="files" aria-label="Dateien"></ul>
+
+    <div id="opts" class="opts" hidden>
+      <label class="check"><input id="ocr" type="checkbox"> Durchsuchbar machen (Text erkennen)</label>
+      <label class="lang">Sprache
+        <select id="lang">
+          <option value="deu">Deutsch</option>
+          <option value="eng">Englisch</option>
+          <option value="deu+eng">Deutsch und Englisch</option>
+        </select>
+      </label>
+      <button id="autosort" class="tool" type="button">Nach Seitenzahlen sortieren</button>
+    </div>
+
+    <div id="selbar" class="selbar" hidden>
+      <span id="selcount" class="selcount"></span>
+      <button class="tool" data-act="rotate" type="button">↻ Drehen</button>
+      <button class="tool" data-act="move" type="button">Verschieben</button>
+      <button class="tool danger" data-act="delete" type="button">Löschen</button>
+      <button class="tool" data-act="none" type="button" aria-label="Auswahl aufheben">✕</button>
+    </div>
+
+    <p id="hint" class="hint" hidden>Tippen wählt Seiten aus. Zum Umsortieren eine Seite gedrückt halten und ziehen.</p>
+
+    <div id="grid" class="grid" role="list" aria-label="Seiten"></div>
+
+    <p class="about">Freie Software (AGPL). <a href="https://github.com/Expedox/JustPDF" rel="noopener">Quellcode ansehen</a></p>
+  </main>
+
+  <footer class="actions">
+    <div id="bar" class="progress" hidden><div></div></div>
+    <button id="clear" class="btn ghost" type="button" disabled>Leeren</button>
+    <button id="export" class="btn primary" type="button" disabled>PDF erstellen</button>
+  </footer>
+
+  <dialog id="movedlg" class="dlg">
+    <form method="dialog">
+      <label for="moveto">Ausgewählte Seiten verschieben vor Seite</label>
+      <input id="moveto" type="number" inputmode="numeric" min="1" required>
+      <p class="dlg-sub">Eine Zahl größer als die letzte Seite verschiebt ans Ende.</p>
+      <div class="dlg-actions">
+        <button class="btn ghost" value="cancel" formnovalidate>Abbrechen</button>
+        <button class="btn primary" value="ok">Verschieben</button>
+      </div>
+    </form>
+  </dialog>
+
+</body>
+</html>
