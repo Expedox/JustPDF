@@ -12,7 +12,7 @@
   <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <title>JustPDF</title>
-  <script type="module" crossorigin src="./assets/index-DBgwLdmg.js"></script>
+  <script type="module" crossorigin src="./assets/index-CiROs7-2.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Dg2ktHYv.css">
 </head>
 <body>
@@ -22,6 +22,7 @@
     <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15v5h16v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 1-2.4-5.7M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-move" viewBox="0 0 24 24"><path d="M4 7h12m0 0-3.5-3.5M16 7l-3.5 3.5M20 17H8m0 0 3.5-3.5M8 17l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v16h16M2 6h16v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-sort" viewBox="0 0 24 24"><path d="M7 4v16m0 0-3-3m3 3 3-3M14 6h6M14 12h4M14 18h2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
@@ -53,11 +54,25 @@
 
     <div id="opts" class="opts" hidden>
       <label class="switch"><input id="ocr" type="checkbox" role="switch"><span class="track"></span>Durchsuchbar machen</label>
+      <label class="switch"><input id="straight" type="checkbox" role="switch" checked><span class="track"></span>Fotos zuschneiden</label>
       <label class="lang"><span class="sr">Sprache der Texterkennung</span>
         <select id="lang">
           <option value="deu">Deutsch</option>
           <option value="eng">Englisch</option>
           <option value="deu+eng">Deutsch + Englisch</option>
+        </select>
+      </label>
+      <label class="lang"><span class="sr">Genauigkeit der Texterkennung</span>
+        <select id="quality">
+          <option value="best">Genau</option>
+          <option value="fast">Schnell</option>
+        </select>
+      </label>
+      <label class="lang"><span class="sr">Dateigröße</span>
+        <select id="size">
+          <option value="original">Bilder original</option>
+          <option value="medium">Kleiner (150 dpi)</option>
+          <option value="small">Sehr klein (100 dpi)</option>
         </select>
       </label>
       <button id="autosort" class="tool" type="button"><svg><use href="#i-sort"/></svg>Nach Seitenzahl sortieren</button>
@@ -67,6 +82,7 @@
       <span id="selcount" class="selcount"></span>
       <button class="tool" data-act="rotate" type="button"><svg><use href="#i-rotate"/></svg>Drehen</button>
       <button class="tool" data-act="move" type="button"><svg><use href="#i-move"/></svg>Verschieben</button>
+      <button class="tool" data-act="crop" type="button" hidden><svg><use href="#i-crop"/></svg><span>Zuschnitt</span></button>
       <button class="tool danger" data-act="delete" type="button"><svg><use href="#i-trash"/></svg>Löschen</button>
       <button class="tool icon-only" data-act="none" type="button" aria-label="Auswahl aufheben"><svg><use href="#i-x"/></svg></button>
     </div>
