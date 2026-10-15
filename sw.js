@@ -1,7 +1,7 @@
 // Service Worker: legt beim ersten Besuch alle Dateien ab. Danach kommt alles aus dem Cache,
 // es gibt keine Anfragen mehr ins Netz (auch nicht im Flugmodus).
-const VERSION = 'c8f8398c0df2';
-const PRECACHE = ["./","assets/__vite-browser-external-Ds2wyR1P.js","assets/engine.worker-CRq7iVyD.js","assets/index-Ccf0s7i0.css","assets/index-Ck-w1FoX.js","assets/libheif-bundle-Dgvdwf2f.js","assets/mupdf-wasm-Bvf0xebB.wasm","assets/rolldown-runtime-FCrsKEuO.js","icons/apple-touch-icon.png","icons/favicon.svg","icons/icon-192.png","icons/icon-512.png","icons/icon.svg","index.html","manifest.webmanifest","vendor/tesseract/lang/deu.traineddata.gz","vendor/tesseract/lang/eng.traineddata.gz","vendor/tesseract/worker.min.js"];
+const VERSION = 'f3e26485ec4e';
+const PRECACHE = ["./","assets/__vite-browser-external-Ds2wyR1P.js","assets/engine.worker-DiNk4fAx.js","assets/index-DBgwLdmg.js","assets/index-Dg2ktHYv.css","assets/libheif-bundle-Dgvdwf2f.js","assets/mupdf-wasm-Bvf0xebB.wasm","assets/rolldown-runtime-FCrsKEuO.js","icons/apple-touch-icon.png","icons/favicon.svg","icons/icon-192.png","icons/icon-512.png","icons/icon.svg","index.html","manifest.webmanifest","vendor/tesseract/lang/deu.traineddata.gz","vendor/tesseract/lang/eng.traineddata.gz","vendor/tesseract/worker.min.js"];
 const CORES = ["vendor/tesseract/core/tesseract-core-lstm.wasm.js","vendor/tesseract/core/tesseract-core-relaxedsimd-lstm.wasm.js","vendor/tesseract/core/tesseract-core-simd-lstm.wasm.js"]; // Varianten des OCR-Kerns, nur die passende wird geladen
 const CACHE = `justpdf-${VERSION}`;
 

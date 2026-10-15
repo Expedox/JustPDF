@@ -5,26 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; worker-src 'self' blob:; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' blob: data:">
-  <meta name="theme-color" content="#2f5d8a">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)">
   <meta name="description" content="PDFs und Fotos zusammenfügen, sortieren und durchsuchbar machen. Alles bleibt auf deinem Gerät.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <title>JustPDF</title>
-  <script type="module" crossorigin src="./assets/index-Ck-w1FoX.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Ccf0s7i0.css">
+  <script type="module" crossorigin src="./assets/index-DBgwLdmg.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Dg2ktHYv.css">
 </head>
 <body>
-  <header class="bar">
-    <h1>JustPDF</h1>
-    <p class="claim">PDFs und Fotos zusammenfügen und sortieren. Alles bleibt auf deinem Gerät.</p>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z" fill="currentColor"/><path d="M15 2v5h5" fill="none" stroke="var(--bg)" stroke-width="1.6"/><path d="M9 12h7M9 15.5h7M9 19h4" stroke="var(--bg)" stroke-width="1.6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15v5h16v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 1-2.4-5.7M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-move" viewBox="0 0 24 24"><path d="M4 7h12m0 0-3.5-3.5M16 7l-3.5 3.5M20 17H8m0 0 3.5-3.5M8 17l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M7 4v16m0 0-3-3m3 3 3-3M14 6h6M14 12h4M14 18h2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+  </svg>
+
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="./" aria-label="JustPDF Startseite"><svg class="logo"><use href="#i-logo"/></svg><span>JustPDF</span></a>
+      <span class="badge"><svg><use href="#i-lock"/></svg>Lokal &amp; offline</span>
+    </div>
   </header>
 
   <main>
+    <section class="hero">
+      <h1>PDFs und Fotos zusammenfügen.</h1>
+      <p>Sortieren, drehen und durchsuchbar machen. Alles passiert auf deinem Gerät, nichts wird hochgeladen.</p>
+    </section>
+
     <label id="drop" class="drop" tabindex="0">
       <input id="picker" type="file" accept="application/pdf,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp,.avif" multiple hidden>
-      <span class="drop-main">PDFs und Fotos hier ablegen</span>
-      <span class="drop-sub">oder tippen, um Dateien auszuwählen</span>
+      <svg class="drop-icon"><use href="#i-upload"/></svg>
+      <span class="drop-main">Dateien hier ablegen</span>
+      <span class="drop-sub">PDF, JPG, PNG, HEIC und mehr · oder tippen zum Auswählen</span>
     </label>
 
     <p id="msg" class="msg" role="status" aria-live="polite" hidden></p>
@@ -32,36 +52,38 @@
     <ul id="files" class="files" aria-label="Dateien"></ul>
 
     <div id="opts" class="opts" hidden>
-      <label class="check"><input id="ocr" type="checkbox"> Durchsuchbar machen (Text erkennen)</label>
-      <label class="lang">Sprache
+      <label class="switch"><input id="ocr" type="checkbox" role="switch"><span class="track"></span>Durchsuchbar machen</label>
+      <label class="lang"><span class="sr">Sprache der Texterkennung</span>
         <select id="lang">
           <option value="deu">Deutsch</option>
           <option value="eng">Englisch</option>
-          <option value="deu+eng">Deutsch und Englisch</option>
+          <option value="deu+eng">Deutsch + Englisch</option>
         </select>
       </label>
-      <button id="autosort" class="tool" type="button">Nach Seitenzahlen sortieren</button>
+      <button id="autosort" class="tool" type="button"><svg><use href="#i-sort"/></svg>Nach Seitenzahl sortieren</button>
     </div>
 
     <div id="selbar" class="selbar" hidden>
       <span id="selcount" class="selcount"></span>
-      <button class="tool" data-act="rotate" type="button">↻ Drehen</button>
-      <button class="tool" data-act="move" type="button">Verschieben</button>
-      <button class="tool danger" data-act="delete" type="button">Löschen</button>
-      <button class="tool" data-act="none" type="button" aria-label="Auswahl aufheben">✕</button>
+      <button class="tool" data-act="rotate" type="button"><svg><use href="#i-rotate"/></svg>Drehen</button>
+      <button class="tool" data-act="move" type="button"><svg><use href="#i-move"/></svg>Verschieben</button>
+      <button class="tool danger" data-act="delete" type="button"><svg><use href="#i-trash"/></svg>Löschen</button>
+      <button class="tool icon-only" data-act="none" type="button" aria-label="Auswahl aufheben"><svg><use href="#i-x"/></svg></button>
     </div>
 
     <p id="hint" class="hint" hidden>Tippen wählt Seiten aus. Zum Umsortieren eine Seite gedrückt halten und ziehen.</p>
 
     <div id="grid" class="grid" role="list" aria-label="Seiten"></div>
 
-    <p class="about">Freie Software (AGPL). <a href="https://github.com/Expedox/JustPDF" rel="noopener">Quellcode ansehen</a></p>
+    <p class="about">Freie Software (AGPL) · <a href="https://github.com/Expedox/JustPDF" rel="noopener">Quellcode</a></p>
   </main>
 
   <footer class="actions">
     <div id="bar" class="progress" hidden><div></div></div>
-    <button id="clear" class="btn ghost" type="button" disabled>Leeren</button>
-    <button id="export" class="btn primary" type="button" disabled>PDF erstellen</button>
+    <div class="actions-in">
+      <button id="clear" class="btn ghost" type="button" disabled>Leeren</button>
+      <button id="export" class="btn primary" type="button" disabled>PDF erstellen</button>
+    </div>
   </footer>
 
   <dialog id="movedlg" class="dlg">
