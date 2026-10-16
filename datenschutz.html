@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; img-src 'self'">
+  <title>Datenschutz · JustPDF</title>
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg: #fafafa; --text: #111113; --muted: #6b6b76; --line: #e2e2e6; --accent: #1f4fd8; --sunken: #f1f1f3; color-scheme: light dark; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #0c0c0e; --text: #f3f3f5; --muted: #9a9aa6; --line: #26262c; --accent: #6d95ff; --sunken: #1b1b1f; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    .back { font-weight: 600; text-decoration: none; }
+    h1 { font-size: 1.75rem; line-height: 1.2; margin: 24px 0 8px; letter-spacing: -.01em; }
+    h2 { font-size: 1.05rem; margin: 32px 0 8px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .lead { font-size: 1.1rem; color: var(--muted); margin: 0 0 8px; }
+    ul { padding-left: 20px; }
+    li { margin: 4px 0; }
+    .box { background: var(--sunken); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 4px; }
+    .todo { color: var(--muted); font-style: italic; }
+    small { color: var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← Zurück zu JustPDF</a>
+  <h1>Datenschutz</h1>
+  <p class="lead">Deine Dateien verlassen dein Gerät nicht.</p>
+
+  <div class="box">JustPDF läuft vollständig in deinem Browser. PDFs, Fotos, erkannter Text und die fertige Datei werden nur auf deinem Gerät verarbeitet. Es gibt keinen Upload, kein Benutzerkonto, keine Cookies, kein Tracking und keine Werbung.</div>
+
+  <h2>Was auf deinem Gerät gespeichert wird</h2>
+  <ul>
+    <li><strong>Programmdateien</strong> im Browser-Cache, damit JustPDF auch offline funktioniert.</li>
+    <li><strong>Einstellungen</strong> (Texterkennung an/aus, Sprache, Genauigkeit, Zuschneiden, Dateigröße) im lokalen Speicher des Browsers.</li>
+    <li><strong>Zwischenergebnisse</strong> der Texterkennung (IndexedDB) und die zuletzt erstellte PDF (privater Browser-Speicher, OPFS). Beides wird beim nächsten Öffnen von JustPDF und mit „Leeren“ gelöscht.</li>
+  </ul>
+  <p>Diese Daten liegen nur in deinem Browser. Der Betreiber hat keinen Zugriff darauf. Du kannst sie jederzeit über die Browser-Einstellungen („Websitedaten löschen“) entfernen.</p>
+
+  <h2>Keine Verbindungen zu Dritten</h2>
+  <p>Alle Bestandteile, auch Texterkennung und Sprachdaten, werden von derselben Adresse geladen wie die App selbst. Es werden keine Schriften, Skripte oder Dienste von fremden Servern eingebunden. Der Browser setzt das technisch durch: Eine Sicherheitsrichtlinie (Content Security Policy) lässt nur Verbindungen zur eigenen Adresse zu. Nach dem ersten Laden arbeitet JustPDF ohne Netzwerkverbindung.</p>
+
+  <h2>Hosting</h2>
+  <p>Diese Seite wird über GitHub Pages bereitgestellt (GitHub, Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107, USA). Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Verbindungsdaten wie IP-Adresse, Zeitpunkt und abgerufene Datei, um die Seite auszuliefern und vor Missbrauch zu schützen. Das passiert nur beim Laden der Programmdateien, nie mit deinen Dokumenten. Rechtsgrundlage ist das berechtigte Interesse an einer sicheren und zuverlässigen Bereitstellung (Art. 6 Abs. 1 lit. f DSGVO). Dabei können Daten in die USA übermittelt werden. Details: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+
+  <h2>Für Firmen: selbst betreiben</h2>
+  <p>JustPDF ist freie Software (AGPL). Die App besteht nur aus statischen Dateien und kann auf einem eigenen Webserver oder im Intranet betrieben werden. Dann entsteht auch beim Laden keine Verbindung zu GitHub. Quellcode: <a href="https://github.com/Expedox/JustPDF" rel="noopener">github.com/Expedox/JustPDF</a>.</p>
+
+  <h2>Verantwortlich</h2>
+  <p class="todo">[Name, Anschrift, E-Mail – bitte ergänzen]</p>
+
+  <h2>Deine Rechte</h2>
+  <p>Du hast nach der DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Da JustPDF selbst keine personenbezogenen Daten erhebt, betrifft das praktisch nur die Verbindungsdaten beim Hosting durch GitHub.</p>
+
+  <p><small>Stand: Oktober 2026</small></p>
+</main>
+</body>
+</html>

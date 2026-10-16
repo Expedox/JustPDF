@@ -1,7 +1,7 @@
 // Service Worker: legt beim ersten Besuch alle Dateien ab. Danach kommt alles aus dem Cache,
 // es gibt keine Anfragen mehr ins Netz (auch nicht im Flugmodus).
-const VERSION = '3640c91741be';
-const PRECACHE = ["./","assets/__vite-browser-external-Ds2wyR1P.js","assets/engine.worker-DQQ4RCNa.js","assets/index-CiROs7-2.js","assets/index-Dg2ktHYv.css","assets/libheif-bundle-Dgvdwf2f.js","assets/mupdf-wasm-Bvf0xebB.wasm","assets/rolldown-runtime-FCrsKEuO.js","icons/apple-touch-icon.png","icons/favicon.svg","icons/icon-192.png","icons/icon-512.png","icons/icon.svg","index.html","manifest.webmanifest","vendor/tesseract/lang-fast/deu.traineddata.gz","vendor/tesseract/lang-fast/eng.traineddata.gz","vendor/tesseract/lang/deu.traineddata.gz","vendor/tesseract/lang/eng.traineddata.gz","vendor/tesseract/worker.min.js"];
+const VERSION = '569d7b3f2499';
+const PRECACHE = ["./","assets/__vite-browser-external-Ds2wyR1P.js","assets/engine.worker-Cjnh1tBW.js","assets/index-C8kO7_wZ.js","assets/index-Dg2ktHYv.css","assets/libheif-bundle-Dgvdwf2f.js","assets/mupdf-wasm-Bvf0xebB.wasm","assets/rolldown-runtime-FCrsKEuO.js","datenschutz.html","icons/apple-touch-icon.png","icons/favicon.svg","icons/icon-192.png","icons/icon-512.png","icons/icon.svg","index.html","manifest.webmanifest","vendor/tesseract/lang-fast/deu.traineddata.gz","vendor/tesseract/lang-fast/eng.traineddata.gz","vendor/tesseract/lang/deu.traineddata.gz","vendor/tesseract/lang/eng.traineddata.gz","vendor/tesseract/worker.min.js"];
 const CORES = ["vendor/tesseract/core/tesseract-core-lstm.wasm.js","vendor/tesseract/core/tesseract-core-relaxedsimd-lstm.wasm.js","vendor/tesseract/core/tesseract-core-simd-lstm.wasm.js"]; // Varianten des OCR-Kerns, nur die passende wird geladen
 const CACHE = `justpdf-${VERSION}`;
 
@@ -27,7 +27,7 @@ self.addEventListener('fetch', (e) => {
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
   e.respondWith((async () => {
     const cache = await caches.open(CACHE);
-    if (req.mode === 'navigate') return (await cache.match('./')) || fetch(req);
+    if (req.mode === 'navigate') return (await cache.match(req, { ignoreSearch: true })) || (await cache.match('./')) || fetch(req);
     const hit = await cache.match(req, { ignoreSearch: true });
     if (hit) return hit;
     const res = await fetch(req);
