@@ -1,7 +1,7 @@
 // Service Worker: legt beim ersten Besuch alle Dateien ab. Danach kommt alles aus dem Cache,
 // es gibt keine Anfragen mehr ins Netz (auch nicht im Flugmodus).
-const VERSION = '569d7b3f2499';
-const PRECACHE = ["./","assets/__vite-browser-external-Ds2wyR1P.js","assets/engine.worker-Cjnh1tBW.js","assets/index-C8kO7_wZ.js","assets/index-Dg2ktHYv.css","assets/libheif-bundle-Dgvdwf2f.js","assets/mupdf-wasm-Bvf0xebB.wasm","assets/rolldown-runtime-FCrsKEuO.js","datenschutz.html","icons/apple-touch-icon.png","icons/favicon.svg","icons/icon-192.png","icons/icon-512.png","icons/icon.svg","index.html","manifest.webmanifest","vendor/tesseract/lang-fast/deu.traineddata.gz","vendor/tesseract/lang-fast/eng.traineddata.gz","vendor/tesseract/lang/deu.traineddata.gz","vendor/tesseract/lang/eng.traineddata.gz","vendor/tesseract/worker.min.js"];
+const VERSION = 'a6abbbeb2532';
+const PRECACHE = ["./","assets/__vite-browser-external-Ds2wyR1P.js","assets/engine.worker-KINt89da.js","assets/index-CqOAMGhR.js","assets/index-DyJo6wuQ.css","assets/libheif-bundle-Dgvdwf2f.js","assets/mupdf-wasm-Bvf0xebB.wasm","assets/rolldown-runtime-FCrsKEuO.js","datenschutz.html","icons/apple-touch-icon.png","icons/favicon.svg","icons/icon-192.png","icons/icon-512.png","icons/icon.svg","index.html","manifest.webmanifest","vendor/tesseract/lang-fast/deu.traineddata.gz","vendor/tesseract/lang-fast/eng.traineddata.gz","vendor/tesseract/lang/deu.traineddata.gz","vendor/tesseract/lang/eng.traineddata.gz","vendor/tesseract/worker.min.js"];
 const CORES = ["vendor/tesseract/core/tesseract-core-lstm.wasm.js","vendor/tesseract/core/tesseract-core-relaxedsimd-lstm.wasm.js","vendor/tesseract/core/tesseract-core-simd-lstm.wasm.js"]; // Varianten des OCR-Kerns, nur die passende wird geladen
 const CACHE = `justpdf-${VERSION}`;
 

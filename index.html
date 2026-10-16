@@ -12,8 +12,8 @@
   <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <title>JustPDF</title>
-  <script type="module" crossorigin src="./assets/index-C8kO7_wZ.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Dg2ktHYv.css">
+  <script type="module" crossorigin src="./assets/index-CqOAMGhR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DyJo6wuQ.css">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -75,6 +75,13 @@
           <option value="small">Sehr klein (100 dpi)</option>
         </select>
       </label>
+      <label class="lang"><span class="sr">Inhaltsverzeichnis</span>
+        <select id="toc">
+          <option value="start">Verzeichnis am Anfang</option>
+          <option value="end">Verzeichnis am Ende</option>
+          <option value="none">Ohne Verzeichnis</option>
+        </select>
+      </label>
       <button id="autosort" class="tool" type="button"><svg><use href="#i-sort"/></svg>Nach Seitenzahl sortieren</button>
     </div>
 
@@ -87,7 +94,7 @@
       <button class="tool icon-only" data-act="none" type="button" aria-label="Auswahl aufheben"><svg><use href="#i-x"/></svg></button>
     </div>
 
-    <p id="hint" class="hint" hidden>Tippen wählt Seiten aus. Zum Umsortieren eine Seite gedrückt halten und ziehen.</p>
+    <p id="hint" class="hint" hidden>Tippen wählt Seiten aus. Zum Umsortieren eine Seite gedrückt halten und ziehen. Dateinamen oben antippen, um die Bezeichnung im Inhaltsverzeichnis zu ändern.</p>
 
     <div id="grid" class="grid" role="list" aria-label="Seiten"></div>
 
